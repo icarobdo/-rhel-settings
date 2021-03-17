@@ -1,0 +1,5 @@
+---
+- name: Report Playbook
+  template:
+    src: templates/log.j2
+    dest: /var/log/ansible_playbook_ajustes.log

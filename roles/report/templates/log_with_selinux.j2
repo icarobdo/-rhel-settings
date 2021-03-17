@@ -1,0 +1,126 @@
+{% block yum %}
+##################################################################
+                REPORT UPDATED {{ ansible_hostname }}             
+##################################################################
+
+- Yum Bugfix Updated:
+
+{% if yum_output_bugfix.changes is defined %}
+{% for i in yum_output_bugfix.changes.updated %}
+{%- set count = 1 - loop.index -%}
+{{ yum_output_bugfix.changes.updated[count][0] }}
+{% endfor %}
+{% endif%}
+
+-----------------------------------------------------
+
+- Yum Bugfix Installed:
+
+{% if yum_output_bugfix.changes is defined %}
+{% for i in yum_output_bugfix.changes.installed %}
+{%- set count = 1 - loop.index -%}
+{{ yum_output_bugfix.changes.installed[count][0] }}
+{% endfor %}
+{% endif%}
+
+
+##################################################################
+
+- Yum Security Updated:
+
+{% if yum_output_security.changes is defined %}
+{% for i in yum_output_security.changes.updated %}
+{%- set count = 1 - loop.index -%}
+{{ yum_output_security.changes.updated[count][0] }}
+{% endfor %}
+{% endif%}
+
+-----------------------------------------------------
+
+- Yum Security Installed:
+
+{% if yum_output_security.changes is defined %}
+{% for i in yum_output_security.changes.installed %}
+{%- set count = 1 - loop.index -%}
+{{ yum_output_security.changes.installed[count][0] }}
+{% endfor %}
+{% endif%}
+
+
+##################################################################
+
+- Yum Other Packages Updated:
+
+{% if yum_output_other.changes is defined %}
+{% for i in yum_output_other.changes.updated %}
+{%- set count = 1 - loop.index -%}
+{{ yum_output_other.changes.updated[count][0] }}
+{% endfor %}
+{% endif%}
+
+-----------------------------------------------------
+
+- Yum Other Packages Installed:
+
+{% if yum_output_other.changes is defined %}
+{% for i in yum_output_other.changes.installed %}
+{%- set count = 1 - loop.index -%}
+{{ yum_output_other.changes.installed[count][0] }}
+{% endfor %}
+{% endif%}
+
+
+{% endblock %}
+
+{% block firewalld %}
+##################################################################
+                REPORT FIREWALLD {{ ansible_hostname }}             
+##################################################################
+
+- Realizada a alteração da porta default serviço ssh (22/TCP) no FirewallD: {{ firewalld_ssh_port_default.changed }}
+
+- Serviço: {{ firewalld_service_status.name }} Status: {{ firewalld_service_status.state }}
+
+- Allowed Services:
+{% for i in  firewalld_services_allow.results %}
+{{ i.msg }}
+{% endfor %}
+
+- Allowed Ports:
+{% for i in  firewalld_ports_allow.results %}
+{{ i.msg }}
+{% endfor %}
+
+
+{% endblock %}
+
+{% block kdump %}
+##################################################################
+                REPORT KDUMP {{ ansible_hostname }}             
+##################################################################
+
+- Realizada a instalação/atualização do pacote: {{ kexec_tools_status.results }}
+
+- Serviço: {{ kdump_service_status.name }} Status: {{ kdump_service_status.state }}
+
+
+{% endblock %}
+
+{% block selinux %}
+##################################################################
+                REPORT SELINUX {{ ansible_hostname }}             
+##################################################################
+
+- Realizada a instalação/atualização dos pacotes: 
+
+{% for i in  selinux_tools_status.results %}
+{{ i.item }}
+{% endfor %}
+
+- SELinux alterado para {{ selinux_permissive_status.state }}
+
+- Realizada liberação de porta SSH no SELinux: {{selinux_ssh_port.ports }} | {{ selinux_ssh_port.setype }} | {{ selinux_ssh_port.state }}
+
+- SELinux alterado para {{ selinux_enforcing_status.state }}
+
+{% endblock %}

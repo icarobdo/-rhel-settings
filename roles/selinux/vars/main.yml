@@ -1,0 +1,9 @@
+---
+# vars file for selinux
+state_first_selinux: permissive
+state_finish_selinux: enforcing
+port_ssh_selinux: 12235
+port_pgpool_selinux: 1999
+selinux_tools_packages:
+  - libselinux-python
+  - policycoreutils-python

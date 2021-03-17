@@ -1,0 +1,46 @@
+---
+- name: Install AIDE
+  yum:
+    name: aide
+    state: latest 
+
+- name: Cron aide check
+  cron:
+    name: "aide check"
+    minute: "0"
+    hour: "23"
+    user: root
+    job: "aide --check"
+    cron_file: aide-check
+
+- name: Cron aide update
+  cron:
+    name: "aide update"
+    weekday: "0"
+    minute: "0"
+    hour: "07"
+    user: root
+    job: "aide --update"
+    cron_file: aide-update
+
+- name: Cron move aide bd
+  cron:
+    name: "aide db"
+    weekday: "0"
+    minute: "0"
+    hour: "15"
+    user: root
+    job: "mv /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz"
+    cron_file: aide-db 
+
+- name: Alterar arquivo aide.conf
+  lineinfile:
+    path: /etc/aide.conf
+    regexp: '^# Ignore'
+    insertbefore: '# Ignore JBOSS LOGS'
+    line: '!/opt/jboss-eap-7.1/standalone/log/' (inseriu a mesma linha duas vezes ao rodar novamente o playbook. colocar when na task)
+  notify: 
+  - Execute aide
+
+- name: Flush handlers
+  meta: flush_handlers

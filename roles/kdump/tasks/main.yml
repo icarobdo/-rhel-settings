@@ -1,0 +1,14 @@
+---
+# tasks file for kdump
+- name: Install kexec-tools
+  package:
+    name: kexec-tools
+    state: present
+  register: kexec_tools_status
+
+- name: Enable KDUMP
+  systemd:
+    name: kdump
+    state: started
+    enabled: yes
+  register: kdump_service_status
