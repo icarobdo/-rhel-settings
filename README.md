@@ -1,1 +1,1 @@
-# -rhel-settings
+# rhel-settings
