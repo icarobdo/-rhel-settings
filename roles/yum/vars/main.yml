@@ -7,7 +7,7 @@ repo_disabled:
   - rhel-server-rhscl-7-eus-rpms  
   - rhel-7-server-supplementary-rpms
   
-yum _install:
+yum_install:
   - redhat-lsb.i686
   - libstdc++.i686
   - compat-libstdc++-33.i686 
