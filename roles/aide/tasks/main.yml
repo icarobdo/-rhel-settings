@@ -39,6 +39,7 @@
     regexp: '^# Ignore'
     insertbefore: '# Ignore JBOSS LOGS'
     line: '!/opt/jboss-eap-7.1/standalone/log/'
+  notify:
   - Execute aide
 
 - name: Flush handlers
