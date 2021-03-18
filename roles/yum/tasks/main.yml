@@ -19,7 +19,7 @@
   shell: "yum clean all"
 
 - name: Yum Clean All Transaction
-  ansible.builtin.command: "yum-complete-transaction --cleanup-only"
+  command: "yum-complete-transaction --cleanup-only"
 
 - name: Remove repository
   yum_repository:
