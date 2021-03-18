@@ -38,8 +38,7 @@
     path: /etc/aide.conf
     regexp: '^# Ignore'
     insertbefore: '# Ignore JBOSS LOGS'
-    line: '!/opt/jboss-eap-7.1/standalone/log/' (inseriu a mesma linha duas vezes ao rodar novamente o playbook. colocar when na task)
-  notify: 
+    line: '!/opt/jboss-eap-7.1/standalone/log/'
   - Execute aide
 
 - name: Flush handlers
