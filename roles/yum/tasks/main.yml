@@ -18,27 +18,27 @@
 - name: Yum Clean All
   shell: "yum clean all"
 
-- name: Yum Clean All Transaction
-  command: "yum-complete-transaction --cleanup-only"
+#- name: Yum Clean All Transaction
+#  command: "yum-complete-transaction --cleanup-only"
 
-- name: Remove repository
-  yum_repository:
-    name: "{{ item }}"
-    state: absent
-  with_items: "{{ repo_disabled }}"
+#- name: Remove repository
+#  yum_repository:
+#   name: "{{ item }}"
+#   state: absent
+#  with_items: "{{ repo_disabled }}"
   #when: ansible_facts['distribution'] == "RedHat" 
 
-- name: Remove Packages
-  yum:
-    name: "{{ item }}"
-    state: removed
-  with_items: "{{ yum_remove }}"
+#- name: Remove Packages
+#  yum:
+#    name: "{{ item }}"
+#    state: removed
+#  with_items: "{{ yum_remove }}"
   
-- name: Install Packages
-  yum:
-    name: "{{ item }}"
-    state: installed
-  with_items: "{{ yum_install }}"  
+#- name: Install Packages
+#  yum:
+#    name: "{{ item }}"
+#    state: installed
+#  with_items: "{{ yum_install }}"  
 
 - name: YUM - Update Bugfix Packages
   yum:
