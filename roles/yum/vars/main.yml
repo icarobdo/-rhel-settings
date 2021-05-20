@@ -1,5 +1,11 @@
 ---
 # vars file for yum
+repo_disabled_yum:
+  - docker-ce.repo
+  - epel7.repo
+  - glusterfs.repo
+  - gluster.repo
+
 repo_disabled:
   - rhel-7-server-eus-rpms                                                                                                                                      21843/21843
   - rhel-7-server-eus-supplementary-rpms

@@ -21,6 +21,10 @@
 #- name: Yum Clean All Transaction
 #  command: "yum-complete-transaction --cleanup-only"
 
+- name: remove repos contents
+     file: path='/etc/yum.repos.d/{{ item }}' state=absent
+  with_items: "{{ repo_disabled_yum }}"  
+  
 #- name: Remove repository
 #  yum_repository:
 #   name: "{{ item }}"
