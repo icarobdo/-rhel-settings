@@ -28,19 +28,18 @@
 #- name: Yum Clean All Transaction
 #  command: "yum-complete-transaction --cleanup-only"
 
-      
 - name: Remove repository
   yum_repository:
    name: "{{ item }}"
    state: absent
   with_items: "{{ repo_disabled }}"
- #when: ansible_facts['distribution'] == "RedHat" 
+ #when: ansible_facts['distribution'] == "RedHat"     
 
 - name: Remove Packages
   yum:
     name: "{{ item }}"
-    state: removed
-  with_items: "{{ remove-packages }}"
+    state: absent
+  with_items: "{{ remove_packages }}"
   
 #- name: Install Packages
 #  yum:

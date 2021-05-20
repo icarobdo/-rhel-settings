@@ -20,6 +20,6 @@ yum_install:
   - libstdc++.i686
   - compat-libstdc++-33.i686 
 
-remove-packages:
+remove_packages:
   - qpid-proton-c-0.26.0-2.el7.x86_64
 
