@@ -23,4 +23,5 @@ yum_install:
 remove_packages:
   - qpid-proton-c-0.26.0-2.el7.x86_64
   - qpid-proton-c-0.28.0-1.el7.x86_64
+  - qpid-proton-c-0.26.0-1.el7.x86_64
 
