@@ -14,6 +14,8 @@ repo_disabled:
   - rhel-7-server-supplementary-rpms
   - rhel-7-server-optional-rpms
   - rhel-server-rhscl-7-rpms
+  - rhel-7-server-optional-rpms
+
    
 yum_install:
   - redhat-lsb.i686
