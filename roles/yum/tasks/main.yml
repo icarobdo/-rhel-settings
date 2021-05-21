@@ -85,7 +85,7 @@
 - name: Reboot Machine Post Yum Updates
   reboot:
     pre_reboot_delay: 5
-    reboot_timeout: 500
+    reboot_timeout: 800
 
 - name: Apagar Diretorio Temporario
   file:
