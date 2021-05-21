@@ -33,7 +33,8 @@
    name: "{{ item }}"
    state: disabled
   with_items: "{{ repo_disabled }}"
- #when: ansible_facts['distribution'] == "RedHat"     
+ #when: ansible_facts['distribution'] == "RedHat"  
+  ignore_errors: true 
 
 - name: Remove Packages
   yum:
