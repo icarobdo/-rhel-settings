@@ -7,12 +7,8 @@ repo_disabled_yum:
   - gluster.repo
 
 repo_disabled:
-  - rhel-7-server-eus-rpms                                                                                                                                      21843/21843
   - rhel-7-server-eus-supplementary-rpms
-  - rhel-ha-for-rhel-7-server-eus-rpms
   - rhel-server-rhscl-7-eus-rpms  
-  - rhel-7-server-supplementary-rpms
-  - rhel-7-server-optional-rpms
   - rhel-server-rhscl-7-rpms
   - rhel-7-server-optional-rpms
 
