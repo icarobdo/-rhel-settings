@@ -83,6 +83,18 @@
 - name: Yum Clean All
   shell: "yum clean all"
 
+- name: Remove Package Kernel
+  yum:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ remove_package_kernel }}"
+  
+- name: Install Package Kernel
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ install_pakage_kernel }}"
+
 - name: Reboot Machine Post Yum Updates
   reboot:
     pre_reboot_delay: 5
