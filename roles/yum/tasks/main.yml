@@ -17,9 +17,9 @@
     name: "{{ item }}"
     path: "/etc/yum.repos.d/"
     state: absent
-    owner: 1000 
-    group: 1000
-    mode: '0777'
+    owner: root 
+    group: root
+#    mode: '0777'
   with_items: "{{ repo_disabled_yum }}"
 
 - name: Subscription Manager Refresh
