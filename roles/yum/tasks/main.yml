@@ -26,7 +26,10 @@
   with_items: "{{ repo_disabled_yum }}"
   
 - name: Move foo to bar
-  command: sudo mv /etc/yum.repos.d/ambari*.repo /opt/  
+  command: sudo mv /etc/yum.repos.d/ambari.repo /opt/
+
+- name: Move foo to bar
+  command: sudo mv /etc/yum.repos.d/ambari-hdp-2.repo /opt/  
   
 - name: Yum Clean All
   shell: "yum clean all"
