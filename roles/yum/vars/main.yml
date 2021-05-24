@@ -25,7 +25,7 @@ remove_packages:
 
 remove_package_kernel:
   - kernel-3.10.0-1160.15.2.el7.x86_64
-  - remove selinux-policy-targeted-3.13.1-192.el7_5.7.noarch
+  - selinux-policy-targeted-3.13.1-192.el7_5.7.noarch
 
 install_pakage_kernel:
   - kernel-3.10.0-1160.15.2.el7.x86_64  

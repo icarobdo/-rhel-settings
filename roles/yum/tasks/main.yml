@@ -88,17 +88,19 @@
     name: "{{ item }}"
     state: absent
   with_items: "{{ remove_package_kernel }}"
+  ignore_errors: true
   
 - name: Install Package Kernel
   yum:
     name: "{{ item }}"
     state: installed
   with_items: "{{ install_pakage_kernel }}"
-
-- name: Reboot Machine Post Yum Updates
-  reboot:
-    pre_reboot_delay: 5
-    reboot_timeout: 800
+  ignore_errors: true
+  
+#- name: Reboot Machine Post Yum Updates
+#  reboot:
+#    pre_reboot_delay: 5
+#    reboot_timeout: 800
 
 - name: Apagar Diretorio Temporario
   file:
