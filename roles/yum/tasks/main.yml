@@ -12,18 +12,18 @@
     src: files/yum.conf
     dest: /opt/yum/yum.conf
     
+- name: Subscription Manager Refresh
+  command: subscription-manager refresh
+
 - name: remove repos epel
   file:
     name: "{{ item }}"
     path: "/etc/yum.repos.d/"
     state: absent
-    owner: root 
-    group: root
+#    owner: root 
+#    group: root
 #    mode: '0777'
   with_items: "{{ repo_disabled_yum }}"
-
-- name: Subscription Manager Refresh
-  command: subscription-manager refresh
   
 - name: Yum Clean All
   shell: "yum clean all"
