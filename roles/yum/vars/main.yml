@@ -5,6 +5,8 @@ repo_disabled_yum:
   - epel7.repo
   - glusterfs.repo
   - gluster.repo
+  - ambari-hdp-2.repo
+  - ambari.repo
 
 repo_disabled:
   - rhel-7-server-eus-supplementary-rpms
