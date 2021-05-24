@@ -27,10 +27,12 @@
   
 - name: Move foo to bar
   command: sudo mv /etc/yum.repos.d/ambari.repo /opt/
+  ignore_errors: true
 
 - name: Move foo to bar
   command: sudo mv /etc/yum.repos.d/ambari-hdp-2.repo /opt/  
-  
+  ignore_errors: true
+
 - name: Yum Clean All
   shell: "yum clean all"
 
