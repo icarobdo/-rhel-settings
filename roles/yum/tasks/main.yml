@@ -31,7 +31,7 @@
 #- name: Yum Clean All Transaction
 #  command: "yum-complete-transaction --cleanup-only"
 
-- name: Disable repos duplicataded
+- name: Disable repos duplicated
   rhsm_repository:
    name: "{{ item }}"
    state: disabled
