@@ -52,6 +52,7 @@
     name: "{{ item }}"
     state: absent
   with_items: "{{ remove_packages }}"
+  ignore_errors: true
   
 #- name: Install Packages
 #  yum:
