@@ -16,9 +16,10 @@
   command: subscription-manager refresh
 
 - name: Move yum.repos.d
-  command: sudo mv /etc/yum.repos.d/"{{ repo_disabled_yum }}" /opt/
+  command: sudo mv /etc/yum.repos.d/"{{ item }}" /opt/
+  with_items: "{{ repo_disabled_yum }}"
   ignore_errors: true
-
+  
   
 #- name: Move foo to bar
 #  command: sudo mv /etc/yum.repos.d/ambari.repo /opt/
