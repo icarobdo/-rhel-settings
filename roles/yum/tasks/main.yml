@@ -15,23 +15,18 @@
 - name: Subscription Manager Refresh
   command: subscription-manager refresh
 
-- name: remove repos epel
-  file:
-    name: "{{ item }}"
-    path: "/etc/yum.repos.d/"
-    state: absent
-#    owner: root 
-#    group: root
-#    mode: '0777'
-  with_items: "{{ repo_disabled_yum }}"
-  
-- name: Move foo to bar
-  command: sudo mv /etc/yum.repos.d/ambari.repo /opt/
+- name: Move yum.repos.d
+  command: sudo mv /etc/yum.repos.d/"{{ repo_disabled_yum }}" /opt/
   ignore_errors: true
 
-- name: Move foo to bar
-  command: sudo mv /etc/yum.repos.d/ambari-hdp-2.repo /opt/  
-  ignore_errors: true
+  
+#- name: Move foo to bar
+#  command: sudo mv /etc/yum.repos.d/ambari.repo /opt/
+#  ignore_errors: true
+
+#- name: Move foo to bar
+#  command: sudo mv /etc/yum.repos.d/ambari-hdp-2.repo /opt/  
+#  ignore_errors: true
 
 - name: Yum Clean All
   shell: "yum clean all"
