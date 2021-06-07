@@ -27,6 +27,7 @@ remove_packages:
   - qpid-proton-c-0.26.0-2.el7.x86_64
   - qpid-proton-c-0.28.0-1.el7.x86_64
   - qpid-proton-c-0.26.0-1.el7.x86_64
+  - qpid-proton-c-0.24.0-2.el7.x86_64
 
 remove_package_kernel:
   - kernel-3.10.0-1160.15.2.el7.x86_64
