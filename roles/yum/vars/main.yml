@@ -5,6 +5,10 @@ repo_disabled_yum:
   - epel7.repo
   - glusterfs.repo
   - gluster.repo
+  - epel17.repo  
+  - epel.repo  
+  - epel-testing.repo  
+  - pgdg-redhat-all.repo
 #  -jenkins.repo
 #  - ambari-hdp-2.repo
 #  - ambari.repo
