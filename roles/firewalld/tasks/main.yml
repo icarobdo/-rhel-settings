@@ -1,32 +1,32 @@
 ---
-- name: Install firewalld
-  package: 
-    name: firewalld
+#- name: Install firewalld
+#  package: 
+#    name: firewalld
 
-- name: Alterar porta default service ssh FirewallD
-  xml:
-    path: /usr/lib/firewalld/services/ssh.xml
-    xpath: /service/port
-    attribute: port
-    value: "{{ port_ssh_xml_firewalld }}"
-  register: firewalld_ssh_port_default
+#- name: Alterar porta default service ssh FirewallD
+#  xml:
+#    path: /usr/lib/firewalld/services/ssh.xml
+#    xpath: /service/port
+#    attribute: port
+#    value: "{{ port_ssh_xml_firewalld }}"
+#  register: firewalld_ssh_port_default
 
-- name: Enable FirewallD
-  service:
-    name: firewalld
-    state: started
-    enabled: yes
-  register: firewalld_service_status
+#- name: Enable FirewallD
+#  service:
+#    name: firewalld
+#    state: started
+#    enabled: yes
+#  register: firewalld_service_status
 
-- name: Enable Services FirewallD
-  firewalld:
-    service: "{{ item }}"
-    zone: public
-    permanent: yes
-    state: enabled
-  with_items: "{{ services_allow_firewalld }}"
-  register: firewalld_services_allow
-  ignore_errors: yes (se der algum erro na task, ele continua o playbook sem interroper o mesmo)
+#- name: Enable Services FirewallD
+#  firewalld:
+#    service: "{{ item }}"
+#    zone: public
+#    permanent: yes
+#    state: enabled
+#  with_items: "{{ services_allow_firewalld }}"
+#  register: firewalld_services_allow
+#  ignore_errors: yes (se der algum erro na task, ele continua o playbook sem interroper o mesmo)
 
 - name: Enable Ports FirewallD
   firewalld:
@@ -39,5 +39,5 @@
     - Reload FirewallD
   register: firewalld_ports_allow
 
-- name: Flush handlers
-  meta: flush_handlers
+#- name: Flush handlers
+#  meta: flush_handlers
