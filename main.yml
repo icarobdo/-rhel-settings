@@ -9,7 +9,7 @@
     - defaults
     # - selinux
     - yum
-    - firewalld
+    #- firewalld
     #- aide
     #- kdump
     #- report

@@ -18,12 +18,13 @@
 #    enabled: yes
 #  register: firewalld_service_status
 
-- name: Disable FirewallD
-  service:
+- name: Ensure firewalld service is disabled and stopped
+  systemd:
     name: firewalld
     state: stopped
-    enabled: false
-  register: firewalld_service_status
+    enabled: no
+    masked: yes
+  register: firewalld_result
 
 #- name: Enable Services FirewallD
 #  firewalld:
