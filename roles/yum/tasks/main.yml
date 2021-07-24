@@ -63,6 +63,7 @@
     state: latest
     bugfix: Yes
     exclude: 'glusterfs*'
+    skip_broken: Yes
   register: yum_output_bugfix  
 
 - name: Yum Clean All
@@ -86,6 +87,7 @@
     conf_file: /opt/yum/yum.conf
     state: latest
     exclude: 'glusterfs*'
+    skip_broken: Yes
   register: yum_output_other  
 
 - name: Yum Clean All
